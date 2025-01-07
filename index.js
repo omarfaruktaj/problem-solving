@@ -8,9 +8,11 @@ const people = [
 ];
 
 const filterOutFemalesAndReturnNames = (people) => {
-  const mailes = people.filter((person) => person.gender !== "female");
+  const remainingPeoples = people.filter(
+    (person) => person.gender !== "female"
+  );
 
-  return mailes.map((mail) => mail.name);
+  return remainingPeoples.map((person) => person.name);
 };
 
 // Problem 2: Create an array of objects representing books with properties like title, author, and year. Write a function that takes the array and returns a new array with only the book titles. Print the result.
@@ -55,4 +57,18 @@ const sortCarsByYear = (cars) => {
   return cars.sort((a, b) => a.year - b.year);
 };
 
-console.log(sortCarsByYear(cars));
+// Prombem 5: Write a function that searches an array of objects for a specific person by name. If found, modify their age property. Print the updated array.
+
+const people1 = [
+  { name: "Alice", age: 30 },
+  { name: "Bob", age: 25 },
+  { name: "Charlie", age: 35 },
+];
+
+function modifyPersonAge(people, name, newAge) {
+  const person = people.find((p) => p.name === name);
+  if (person) {
+    person.age = newAge;
+  }
+  return people;
+}
